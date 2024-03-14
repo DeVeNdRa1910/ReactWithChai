@@ -7,7 +7,7 @@ import React from 'react'
 function Card({userName , btnText="Visit Profile"}) {
     console.log("message: ",userName);
     return (
-        <div className="relative h-[400px] w-[300px] rounded-md ">
+        <div className="relative h-[500px] w-[300px] rounded-3xl m-4">
         <img
           src="src\assets\wallpaperflare.com_wallpaper.jpg"
           alt="AirMax Pro"
