@@ -19,10 +19,11 @@ function App() {
   // actual change in theme
 
   useEffect(()=>{
-    document.querySelector('html').classList.remove("light" , "dark")
-    document.querySelector('html').classList.add(themeMode)
+    const htmlClasslist = document.querySelector('html').classList;
+    htmlClasslist.remove("light" , "dark")
+    htmlClasslist.add(themeMode)
   } , [themeMode])
-
+ 
   return (
     <ThemePreovider value={{themeMode , darkTheme ,  lightTheme}}>
       <div className="flex flex-wrap min-h-screen items-center">

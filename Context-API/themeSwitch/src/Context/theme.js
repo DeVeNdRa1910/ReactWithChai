@@ -9,6 +9,16 @@ export const ThemeContext = createContext({
     lightTheme: () => {},
 })
 
+// we can create context without importing
+/* 
+export const ThemeContext = React.createContext({
+    themeMode: "light",
+    darkTheme: () => {},
+    lightTheme: () => {},
+})
+// No need to import createContext
+*/
+
 export const ThemePreovider = ThemeContext.Provider;
 
 export default function useTheme(){
