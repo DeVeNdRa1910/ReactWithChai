@@ -6,10 +6,11 @@ import LogoutButton from './Header/LogoutButton';
 import RTE from './RTE';
 import Signup from '../pages/Signup';
 import Login from '../pages/Login';
-
+import Button from './Button'
 import PostForm from './post-form/PostForm';
 import PostCard from './PostCard';
 import AuthLayout from './AuthLayout'
+import Input from './Input'
 
 export {
     Header,
@@ -20,8 +21,9 @@ export {
     RTE,
     Signup,
     Login,
-
+    Button,
     PostForm,
     PostCard,
-    AuthLayout
+    AuthLayout,
+    Input
 }
