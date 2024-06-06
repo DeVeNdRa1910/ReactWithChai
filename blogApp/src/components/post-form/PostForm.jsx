@@ -59,7 +59,7 @@ function PostForm({ post }) {
 
   //replacing spaces(' ') with (-)
   const slugTransform = useCallback((value) => {
-    if (value && typeof value === "String") {
+    if (value && typeof value === String) {
       /* const slug = value.toLowerCase().replace(/ /g, '-')
       setValue('slug', slug)
       return slug */
