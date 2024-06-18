@@ -27,6 +27,34 @@ const productSlice = createSlice({
         },
     }
 }) 
+/* 
+we cant put asyync call in reducers bcs reducers call synchrounusly 
+like -> const resp = await fetch('https://fakestoreapi.com/products'); dont do in reducer
+
+
+But we have to fectch data in reducer for that we should use Thunks Middleware
+Thuks is nothing but normal function
+
+*/
+
+//MEthod 1 to write async code in Slice
+export function fetchProduct() {
+    return async function fetchProductThunk(dispatch, getState) {
+        //getState willl provide access of current state
+        //like if we want data array
+        const dataArray = getState().data;
+        dispatch(setStatus(STATUSES.LOADING))
+        try {
+            const resp = await fetch('https://fakestoreapi.com/products');
+            const data = await resp.json();
+            dispatch(setProducts(data))
+            dispatch(setStatus(STATUSES.IDLE))
+        } catch (error) {
+            console.log(error);
+            dispatch(setStatus(STATUSES.ERROR))
+        }
+    }
+} 
 
 
 
@@ -74,34 +102,7 @@ export default productSlice.reducer;
 export const {setProducts, setStatus} = productSlice.actions;
 export default productSlice.reducer;
 
-/* 
-we cant put asyync call in reducers bcs reducers call synchrounusly 
-like -> const resp = await fetch('https://fakestoreapi.com/products'); dont do in reducer
 
-
-But we have to fectch data in reducer for that we should use Thunks Middleware
-Thuks is nothing but normal function
-
-*/
-
-//MEthod 1 to write async code in Slice
-export function fetchProduct() {
-    return async function fetchProductThunk(dispatch, getState) {
-        //getState willl provide access of current state
-        //like if we want data array
-        const dataArray = getState().data;
-        dispatch(setStatus(STATUSES.LOADING))
-        try {
-            const resp = await fetch('https://fakestoreapi.com/products');
-            const data = await resp.json();
-            dispatch(setProducts(data))
-            dispatch(setStatus(STATUSES.IDLE))
-        } catch (error) {
-            console.log(error);
-            dispatch(setStatus(STATUSES.ERROR))
-        }
-    }
-} 
 
 
 
