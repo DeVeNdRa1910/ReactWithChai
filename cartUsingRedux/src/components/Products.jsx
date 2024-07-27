@@ -8,8 +8,6 @@ function Products() {
 
     const dispatch = useDispatch();
 
-
-
     const {data: products, status} = useSelector(state => state.product)
 
     useEffect(()=>{
@@ -56,7 +54,7 @@ function Products() {
                             <h4>Price: ₹ {Math.floor(item.price*80)}/-</h4>
                         </div>
                         <div className='flex justify-center'>
-                            <button onClick={()=>{handleAdd(item)}} className='bottom-3 w-full border border-gray-600 bg-zinc-800 text-white px-10 py-1 rounded-md ' >Add To Cart</button>
+                            <button onClick={()=>{handleAdd(item)}} className='bottom-3 w-full border border-gray-600 bg-zinc-800 text-white px-10 py-1 rounded-md hover:bg-zinc-950' >Add To Cart</button>
                         </div>
                        
                     </div>
