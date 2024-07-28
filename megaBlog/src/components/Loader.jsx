@@ -10,7 +10,7 @@ function Loader({ height, width }) {
 
 export default Loader;
 
-/*       */
+
 
 /* 
       <div
