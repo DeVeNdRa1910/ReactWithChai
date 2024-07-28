@@ -14,7 +14,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@tinymce/tinymce-react": "^4.3.0",
     "appwrite": "^13.0.0",
-    "caniuse-lite": "",
+    "caniuse-lite": "^1.0.30001643",
     "ckeditor5": "^42.0.2",
     "ckeditor5-premium-features": "^42.0.2",
     "html-react-parser": "^4.2.2",

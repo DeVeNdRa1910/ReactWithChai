@@ -3,6 +3,16 @@ import React from "react";
 function Loader({ height, width }) {
   return (
     <div className="flex justify-center items-center h-screen">
+      <div style={{ width: `${height}rem`, height: `${width}rem`}} className={`border-t-8 border-white border-t-orange-500 rounded-full animate-spin`}></div>
+    </div>
+  );
+}
+
+export default Loader;
+
+/*       */
+
+/* 
       <div
         className={`inline-block h-${height} w-${width} animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]`}
         role="status"
@@ -11,14 +21,4 @@ function Loader({ height, width }) {
           Loading...
         </span>
       </div>
-    </div>
-    
-  );
-}
-
-export default Loader;
-
-
-/*       <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-full w-full border-t-4 border-b-4 border-t-blue-500 border-b-purple-500"></div>
-      </div> */
+      */

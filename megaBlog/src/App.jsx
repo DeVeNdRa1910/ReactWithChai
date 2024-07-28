@@ -34,7 +34,7 @@ function App() {
       </div>
     </div>
   ) : (
-    <Loader height={48} width={48} />
+    <Loader height={10} width={10} />
   )
 }
 
