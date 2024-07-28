@@ -4,6 +4,7 @@ import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import CKE from "../CKE";
 
 export default function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
@@ -80,12 +81,12 @@ export default function PostForm({ post }) {
     <form onSubmit={handleSubmit(submit)} className="flex flex-col">
       <div className="w-full px-2">
         <div>
-            <Input
-              label="TITLE "
-              placeholder="Title"
-              className="mb-4"
-              {...register("title", { required: true })}
-            />
+          <Input
+            label="TITLE "
+            placeholder="Title"
+            className="mb-4"
+            {...register("title", { required: true })}
+          />
         </div>
         <div>
           <Input
@@ -96,24 +97,27 @@ export default function PostForm({ post }) {
             {...register("image", { required: !post })}
           />
           {post && (
-            <div className="w-full mb-4">
+            <div className="w-full mb-4 flex items-center">
               <img
                 src={appwriteService.getFilePreview(post.featuredImage)}
                 alt={post.title}
-                className="rounded-lg w-96 h-auto"
+                className="rounded-lg w-auto h-20"
               />
             </div>
           )}
         </div>
-        {/* <Input
-                    label="Slug :"
-                    placeholder="Slug"
-                    className="mb-4"
-                    {...register("slug", { required: true })}
-                    onInput={(e) => {
-                        setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
-                    }}
-                /> */}
+        {/* 
+          <Input
+            label="Slug :"
+            placeholder="Slug"
+            className="mb-4"
+            {...register("slug", { required: true })}
+              onInput={(e) => {
+                setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
+              }
+            }
+          /> 
+        */}
         <RTE
           name="content"
           control={control}
