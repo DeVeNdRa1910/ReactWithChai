@@ -41,7 +41,7 @@ function Header() {
 
   return (
     <>
-      <header className="py-4 shadow text-white bg-orange-500 fixed w-full z-20">
+      <header className="py-2 shadow text-white bg-orange-500 bg-opacity-60 backdrop-blur-lg fixed w-full z-20">
         <Container>
           <nav className="flex items-center justify-between">
             <div className="mr-4">
@@ -96,7 +96,7 @@ function Header() {
 
       {/* Sidebar for small screens */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-orange-500 text-white z-30 transform ${
+        className={`fixed top-0 right-0 h-full w-64 bg-orange-500 bg-opacity-60 backdrop-blur-lg text-white z-30 transform ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 ease-in-out`}
       >

@@ -11,7 +11,7 @@ function AllPosts() {
     }
   });
   return (
-    <div className="w-full py-8 mt-[12vh]">
+    <div className="w-full py-8 mt-[8vh]">
       <Container>
         <div className="flex flex-wrap ">
           {posts.map((post) => (
