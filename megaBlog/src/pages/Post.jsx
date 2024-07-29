@@ -33,7 +33,7 @@ export default function Post() {
     };
 
     return post ? (
-        <div className="py-8 mt-[16vh]">
+        <div className="py-8 mt-[12vh]">
             <Container>
                 <div className="text-center mb-6">
                     <h1 className="text-3xl text-orange-500 font-bold ">{post.title}</h1>
