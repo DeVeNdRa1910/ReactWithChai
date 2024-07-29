@@ -77,11 +77,11 @@ export default function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-col">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-col space-y-4">
       <div className="w-full px-2">
         <div>
           <Input
-            label="TITLE "
+            label="Title"
             placeholder="Title"
             className="mb-4"
             {...register("title", { required: true })}
@@ -89,52 +89,40 @@ export default function PostForm({ post }) {
         </div>
         <div>
           <Input
-            label="THUBNAIL "
+            label="Thumbnail"
             type="file"
             className="mb-4"
             accept="image/png, image/jpg, image/jpeg, image/gif"
             {...register("image", { required: !post })}
           />
           {post && (
-            <div className="w-full mb-4 flex items-center">
+            <div className="mb-4 flex justify-center sm:w-full md:w-1/2 lg:w-1/3">
               <img
                 src={appwriteService.getFilePreview(post.featuredImage)}
                 alt={post.title}
-                className="rounded-lg w-auto h-20"
+                className="rounded-lg w-full"
               />
             </div>
           )}
         </div>
-        {/* 
-          <Input
-            label="Slug :"
-            placeholder="Slug"
-            className="mb-4"
-            {...register("slug", { required: true })}
-              onInput={(e) => {
-                setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
-              }
-            }
-          /> 
-        */}
         <RTE
           name="content"
           control={control}
           defaultValue={getValues("content")}
         />
       </div>
-      <div className="w-1/3 px-2 flex justify-center items-center mx-auto">
-        <div className="w-full p-4 flex flex-wrap items-center gap-5 ">
+      <div className="w-full px-2 flex justify-center items-center">
+        <div className="w-full p-4 flex flex-wrap items-center gap-5">
           <Select
             options={["active", "inactive"]}
             label="Status"
-            className="mb-4"
+            className="mb-4 w-full md:w-auto"
             {...register("status", { required: true })}
           />
           <Button
             type="submit"
             bgColor={post ? "bg-green-500" : undefined}
-            className="w-full"
+            className="w-full md:w-auto"
           >
             {post ? "Update" : "Submit"}
           </Button>
