@@ -28,7 +28,7 @@ function Signup() {
     }
 
     return (
-        <div className="text-back  flex items-center justify-center multi-colored-border">
+        <div className="text-black flex items-center justify-center">
             <div className={`mx-auto w-full max-w-lg bg-white bg-opacity-80 backdrop-blur-lg rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
@@ -47,7 +47,7 @@ function Signup() {
                 </p>
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
-                <form className='mt-2'  onSubmit={handleSubmit(create)}>
+                <form className='mt-2' onSubmit={handleSubmit(create)}>
                     <div className='space-y-5'>
                         <Input
                             label=""

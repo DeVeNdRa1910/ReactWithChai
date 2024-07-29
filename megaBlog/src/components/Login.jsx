@@ -33,7 +33,7 @@ function Login() {
 
   return (
     <div
-    className='mt-[16vh] flex items-center justify-center w-full text-black multi-colored-border`'
+    className='mt-[16vh] flex items-center justify-center w-full text-black multi-colored-border'
     >
         <div className={`mx-auto w-full max-w-lg bg-white bg-opacity-80 backdrop-blur-lg rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">

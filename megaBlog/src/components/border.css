@@ -1,28 +1,42 @@
-/* customStyles.css */
 .multi-colored-border {
     position: relative;
-    border: 2px solid transparent; /* Invisible border */
-    border-radius: 8px; /* Adjust as needed */
-  }
-  
-  .multi-colored-border::before {
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.multi-colored-border::after, .multi-colored-border::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
     border-radius: inherit;
-    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff);
-    background-size: 400% 400%;
-    animation: glowing-border 3s ease infinite;
+    background-image: conic-gradient(from var(--angle), #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff);
+    translate: -50% -50%;
     z-index: -1;
-    filter: blur(5px); /* Optional: Adjust blur for effect */
-  }
-  
-  @keyframes glowing-border {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-  }
-  
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+    /* Optional: Adjust blur for effect */
+}
+
+.multi-colored-border::before{
+    filter: blur(1rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
