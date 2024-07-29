@@ -3,6 +3,8 @@ import {Container, Logo, LogoutBtn} from '../index'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { TiThMenu } from "react-icons/ti";
+import { GiCrossMark } from "react-icons/gi";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
@@ -52,22 +54,9 @@ function Header() {
             <div className="block lg:hidden">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="text-white focus:outline-none"
+                className="text-white focus:outline-none text-3xl"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}
-                  ></path>
-                </svg>
+                {menuOpen ? <GiCrossMark/> : <TiThMenu/>}
               </button>
             </div>
             <ul className="hidden lg:flex lg:items-center lg:gap-2 ml-auto">
@@ -96,32 +85,19 @@ function Header() {
 
       {/* Sidebar for small screens */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-orange-500 bg-opacity-60 backdrop-blur-lg text-white z-30 transform ${
+        className={`fixed top-0 right-0 h-full w-[50vw] bg-orange-500 bg-opacity-60 backdrop-blur-lg text-white z-30 transform ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 ease-in-out`}
       >
-        <div className="p-4">
+        <div className=" fixed top-4 right-4 mb-[2vh]">
           <button
             onClick={() => setMenuOpen(false)}
-            className="text-white focus:outline-none"
+            className="text-white focus:outline-none text-3xl active:scale-90"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
+            <GiCrossMark />
           </button>
         </div>
-        <ul className="flex flex-col items-start p-4">
+        <ul className="flex flex-col items-start p-4 mt-[4vh]">
           {navItems.map(
             (item) =>
               item.active && (
