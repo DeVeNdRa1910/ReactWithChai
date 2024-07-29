@@ -1,0 +1,28 @@
+/* customStyles.css */
+.multi-colored-border {
+    position: relative;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 8px; /* Adjust as needed */
+  }
+  
+  .multi-colored-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff);
+    background-size: 400% 400%;
+    animation: glowing-border 3s ease infinite;
+    z-index: -1;
+    filter: blur(5px); /* Optional: Adjust blur for effect */
+  }
+  
+  @keyframes glowing-border {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  

@@ -5,6 +5,7 @@ import {Button, Input, Logo} from "./index"
 import {useDispatch} from "react-redux"
 import authService from "../appwrite/auth"
 import {useForm} from "react-hook-form"
+import './border.css'
 
 function Login() {
     const navigate = useNavigate()
@@ -32,9 +33,9 @@ function Login() {
 
   return (
     <div
-    className='flex items-center justify-center w-full'
+    className='mt-[16vh] flex items-center justify-center w-full text-black multi-colored-border`'
     >
-        <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+        <div className={`mx-auto w-full max-w-lg bg-white bg-opacity-80 backdrop-blur-lg rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
                         <Logo width="100%" />
@@ -54,7 +55,8 @@ function Login() {
         <form onSubmit={handleSubmit(login)} className='mt-8'>
             <div className='space-y-5'>
                 <Input
-                label="Email: "
+                label=""
+                className="w-full border border-gray-400 shadow-md"
                 placeholder="Enter your email"
                 type="email"
                 {...register("email", {
@@ -66,16 +68,18 @@ function Login() {
                 })}
                 />
                 <Input
-                label="Password: "
+                label=""
                 type="password"
+                className="w-full border border-gray-400 shadow-md"
                 placeholder="Enter your password"
                 {...register("password", {
                     required: true,
                 })}
                 />
                 <Button
+                bgColor="bg-orange-500"
                 type="submit"
-                className="w-full"
+                className="w-full hover:bg-orange-600 active:scale-95"
                 >Sign in</Button>
             </div>
         </form>
