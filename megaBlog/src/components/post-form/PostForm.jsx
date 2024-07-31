@@ -4,6 +4,7 @@ import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import QuillEditor from "../QuillEditor";
 
 export default function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
@@ -55,6 +56,8 @@ export default function PostForm({ post }) {
     }
   };
 
+  
+
   const slugTransform = useCallback((value) => {
     if (value && typeof value === "string")
       return value
@@ -105,7 +108,12 @@ export default function PostForm({ post }) {
             </div>
           )}
         </div>
-        <RTE
+        {/* <RTE
+          name="content"
+          control={control}
+          defaultValue={getValues("content")}
+        /> */}
+        <QuillEditor
           name="content"
           control={control}
           defaultValue={getValues("content")}
