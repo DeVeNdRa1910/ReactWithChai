@@ -120,20 +120,20 @@ export default function PostForm({ post }) {
         />
       </div>
       <div className="w-full px-2 flex justify-center items-center">
-        <div className="w-full p-4 flex flex-wrap items-center gap-5">
-          <Select
-            options={["active", "inactive"]}
-            label="Status"
-            className="mb-4 w-full md:w-auto"
-            {...register("status", { required: true })}
-          />
-          <Button
-            type="submit"
-            bgColor={post ? "bg-green-500" : undefined}
-            className="w-full md:w-auto"
-          >
-            {post ? "Update" : "Submit"}
-          </Button>
+        <div className="w-full p-4 flex justify-between items-center  mt-[4vh] gap-5">
+            <Select
+              options={["active", "inactive"]}
+              label="Status"
+              className="my-4  md:w-auto"
+              {...register("status", { required: true })}
+            />
+            <Button
+              type="submit"
+              bgColor={post ? "bg-green-500" : undefined}
+              className=" md:w-auto"
+            >
+              {post ? "Update" : "Submit"}
+            </Button>
         </div>
       </div>
     </form>
